@@ -121,7 +121,7 @@ Me enfrenté a muchos problemas de lógica, especialmente en las peticiones GET 
 
 --------------------------------------------------------------------
 
-Configuración de la Base de Datos:
+6.Configuración de la Base de Datos:
 
 El proyecto incluye un archivo de respaldo (dump) autoconstruido que contiene toda la estructura de tablas y los datos iniciales necesarios para probar la API inmediatamente.
 
@@ -140,3 +140,32 @@ Selecciona el esquema pokemon_database como destino.
 
 Haz clic en Start Import.
 (Se que ya deben saber estos pasos, pero es por si acaso.)
+
+--------------------------------------------------------------------
+
+7.Variables de Entorno (.env)
+Para que la API pueda conectarse a tu base de datos local, debes configurar las credenciales.
+
+En la raíz del proyecto, crea un archivo llamado .env.
+
+Copia y adapta la siguiente configuración (basada en la librería dotenv):
+
+Fragmento de código:
+ 
+
+# Configuración del Servidor
+PORT=3000
+
+# Configuración de la Base de Datos
+DB_HOST=localhost
+DB_USER=root              # Tu usuario de MySQL (usualmente root).
+DB_PASSWORD=tu_clave      # La contraseña que configuraste al instalar MySQL.
+DB_NAME=pokemon_database  #Este nombre si es fijo, para evitar conflictos.
+DB_PORT=3306
+
+# Seguridad (JWT)
+JWT_SECRET=tu_palabra_secreta_super_segura
+
+Nota: El archivo .env está ignorado por Git (vía .gitignore) por seguridad, así que cada desarrollador debe crear el suyo localmente.
+
+Y ya esta. Luego de esto solo les quedara hacer "$ npm i" y correr el servidor "$ npm run dev". 
