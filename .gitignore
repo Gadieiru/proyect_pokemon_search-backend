@@ -1,0 +1,5 @@
+node_modules/
+03_pokemonDelete/
+02_pokemonCRUD/
+static/
+.env
